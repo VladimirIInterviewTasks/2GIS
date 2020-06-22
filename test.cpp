@@ -5,6 +5,7 @@
 #include <array>
 
 #include "node.hpp"
+#include "datatype.hpp"
 
 using namespace std::string_literals;
 
@@ -24,7 +25,7 @@ TEST(Node, ShouldSerializeHelloWorld) {
   Node n {"Hello"s};
 
   std::vector <std::byte> data;
-  auto array = make_bytes(3,0,0,0,5,0,0,0,0,0,0,0,'H','e','l','l','o');
+  auto array = make_bytes(DataType::STRING,0,0,0,5,0,0,0,0,0,0,0,'H','e','l','l','o');
   std::vector <std::byte> comp ( array.begin(), array.end());
 
   n.serialize(data);

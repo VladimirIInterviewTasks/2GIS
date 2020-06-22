@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <deque>
 
+#include "datatype.hpp"
+
 struct TypeUnknownException : public std::exception
 {
     const char *what() const throw()
@@ -81,13 +83,6 @@ toBinaryVisitor(F const &f)
         }};
 }
 
-enum DataType : int
-{
-    INT = 1,
-    DOUBLE = 2,
-    STRING = 3,
-    LIST = 4
-};
 
 template <class T>
 void serilize(T const &t, std::vector<std::byte> &data)
